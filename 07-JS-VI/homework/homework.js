@@ -66,8 +66,6 @@ return sinA;
 
 
 
-
-
 // No modificar nada debajo de esta línea
 // --------------------------------
 
