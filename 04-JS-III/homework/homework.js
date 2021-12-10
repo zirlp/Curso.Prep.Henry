@@ -60,7 +60,7 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  return palabras.reduce((a, b) => a + ' ' + b);
+  return palabras.reduce((a, b) => a + ' ' + b);  // podía hacerlo con palabras.join(' ')
 }
 
 
@@ -68,7 +68,7 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
- return array.includes(elemento);
+ return array.includes(elemento);    // podía hacerlo con un ciclo for buscando array[i]==elemento
 }
 
 
@@ -76,7 +76,7 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  return numeros.reduce((a, b) => a + b, 0);
+  return numeros.reduce((a, b) => a + b, 0);   //podía hacerlo con un ciclo for y una variable acumuladora.
 }
 
 
@@ -96,9 +96,8 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  var max = 0;
-  for (i = 0; i < numeros.length; i++) {
-    numeros[i];
+  var max = numeros[0];
+  for (i = 1; i < numeros.length; i++) {
     if (numeros[i] > max) {
       max = numeros[i];
     }
@@ -126,7 +125,6 @@ function cuentoElementos(arreglo){
   //Escribe tu código aquí
   var sum = 0;
   for (i = 0; i < arreglo.length; i++) {
-    arreglo[i];
     if (arreglo[i] > 18) {
       sum = sum + 1;
     }
@@ -152,8 +150,8 @@ function empiezaConNueve(n) {
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
   var x = n.toString();
-  var y = x[0].split('');
-  if ( y[0] === '9') {
+
+  if ( x[0] === '9') {
     return true;
   } return false;
   }
@@ -164,7 +162,7 @@ function todosIguales(arreglo) {
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
   for (i = 0; i < arreglo.length; i++) {
-    if (arreglo[i] !== arreglo [i + 1]) {
+    if (arreglo[i] !== arreglo [i + 1]) {       //podía compararse arreglo[0] !== arreglo[i] (con i=1)
       return false; 
     } return true;
   }
@@ -179,14 +177,18 @@ function mesesDelAño(array) {
   // Tu código:
   var x = [];
   for (i = 0; i < array.length; i++) {
-    if (array[i] === 'Enero' || array [i] === 'Marzo' || array[i] === 'Noviembre') {
+    if (array[i] == 'Enero' || array [i] == 'Marzo' || array[i] == 'Noviembre') {
       x.push(array[i]);
-    }  else if (array.length === 3) {
-        return x;
-      }
-    return 'No se encontraron los meses perdidos';
+    } 
   }
-}
+  if (x.length < 3) {
+    return 'No se encontraron los meses pedidos';
+  } else {
+      return x;
+    }
+  
+} 
+
 
 
 function mayorACien(array) {
@@ -213,13 +215,17 @@ function breakStatement(numero) {
   // Tu código:
   var array = [];
   for (var i = 0; i < 10; i++) {
-    if (array[i] == i) {
-      break;
-    }
     numero += 2;
-    array.push (numero);
-  }
-  return array;
+    if (numero == i) break; 
+     else {
+        array.push(numero);
+      }
+    }
+  if ( i <10) {
+      return 'Se interrumpió la ejecución';
+    } else {
+      return array;
+    }
 }
 
 
@@ -232,13 +238,14 @@ function continueStatement(numero) {
   // Tu código:
     var array = [];
    for (var i = 0; i < 10; i++) {
-     if ( i === 5) {
-      continue; 
+     if ( i === 5) continue; 
+      else {
+        numero += 2;
+        array.push (numero);
       }
-    numero += 2;
-    array.push (numero);
-   }
-return array;
+    }
+   return array;
+
 }
 
 
